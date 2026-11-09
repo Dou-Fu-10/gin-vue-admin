@@ -3,7 +3,6 @@ package initialize
 import (
 	"context"
 	adapter "github.com/casbin/gorm-adapter/v3"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/example"
 	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
 	"github.com/flipped-aurora/gin-vue-admin/server/plugin/announcement/model"
 	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
@@ -42,27 +41,17 @@ func (e *ensureTables) MigrateTable(ctx context.Context) (context.Context, error
 		sysModel.SysAuthority{},
 		sysModel.JwtBlacklist{},
 		sysModel.SysDictionary{},
-		sysModel.SysAIWorkflowSession{},
 		sysModel.SysOperationRecord{},
 		sysModel.SysDictionaryDetail{},
 		sysModel.SysBaseMenuParameter{},
 		sysModel.SysBaseMenuBtn{},
 		sysModel.SysAuthorityBtn{},
-		sysModel.SysExportTemplate{},
-		sysModel.Condition{},
-		sysModel.JoinTemplate{},
 		sysModel.SysParams{},
 		sysModel.SysVersion{},
 		sysModel.SysError{},
 		sysModel.SysLoginLog{},
 		sysModel.SysApiToken{},
 		adapter.CasbinRule{},
-
-		example.ExaFile{},
-		example.ExaCustomer{},
-		example.ExaFileChunk{},
-		example.ExaFileUploadAndDownload{},
-		example.ExaAttachmentCategory{},
 
 		model.Info{},
 	}
@@ -86,24 +75,14 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 		sysModel.SysAuthority{},
 		sysModel.JwtBlacklist{},
 		sysModel.SysDictionary{},
-		sysModel.SysAIWorkflowSession{},
 		sysModel.SysOperationRecord{},
 		sysModel.SysDictionaryDetail{},
 		sysModel.SysBaseMenuParameter{},
 		sysModel.SysBaseMenuBtn{},
 		sysModel.SysAuthorityBtn{},
-		sysModel.SysExportTemplate{},
-		sysModel.Condition{},
-		sysModel.JoinTemplate{},
 
 		adapter.CasbinRule{},
-
-		example.ExaFile{},
-		example.ExaCustomer{},
-		example.ExaFileChunk{},
-		example.ExaFileUploadAndDownload{},
-		example.ExaAttachmentCategory{},
-
+		
 		model.Info{},
 	}
 	yes := true
