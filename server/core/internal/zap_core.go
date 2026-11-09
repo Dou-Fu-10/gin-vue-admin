@@ -3,16 +3,15 @@ package internal
 import (
 	"context"
 	"fmt"
-	"github.com/flipped-aurora/gin-vue-admin/server/global"
-	"github.com/flipped-aurora/gin-vue-admin/server/model/system"
-	"github.com/flipped-aurora/gin-vue-admin/server/service"
-	astutil "github.com/flipped-aurora/gin-vue-admin/server/utils/ast"
-	"github.com/flipped-aurora/gin-vue-admin/server/utils/stacktrace"
-	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/flipped-aurora/gin-vue-admin/server/global"
+	"github.com/flipped-aurora/gin-vue-admin/server/model/system"
+	"github.com/flipped-aurora/gin-vue-admin/server/service"
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
 )
 
 type ZapCore struct {
@@ -102,19 +101,6 @@ func (z *ZapCore) Write(entry zapcore.Entry, fields []zapcore.Field) error {
 		// 附加来源与堆栈信息
 		if entry.Caller.File != "" {
 			info = fmt.Sprintf("%s \n 源文件:%s:%d", info, entry.Caller.File, entry.Caller.Line)
-		}
-		stack := entry.Stack
-		if stack != "" {
-			info = fmt.Sprintf("%s \n 调用栈：%s", info, stack)
-			// 解析最终业务调用方，并提取其方法源码
-			if frame, ok := stacktrace.FindFinalCaller(stack); ok {
-				fnName, fnSrc, sLine, eLine, exErr := astutil.ExtractFuncSourceByPosition(frame.File, frame.Line)
-				if exErr == nil {
-					info = fmt.Sprintf("%s \n 最终调用方法:%s:%d (%s lines %d-%d)\n----- 产生日志的方法代码如下 -----\n%s", info, frame.File, frame.Line, fnName, sLine, eLine, fnSrc)
-				} else {
-					info = fmt.Sprintf("%s \n 最终调用方法:%s:%d (%s) | extract_err=%v", info, frame.File, frame.Line, fnName, exErr)
-				}
-			}
 		}
 
 		// 使用后台上下文，避免依赖 gin.Context
