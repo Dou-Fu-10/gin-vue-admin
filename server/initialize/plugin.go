@@ -22,8 +22,6 @@ func InstallPlugin(PrivateGroup *gin.RouterGroup, PublicRouter *gin.RouterGroup,
 			global.GVA_LOG.Info("数据库已就绪，开始注册插件")
 			params := notifier.GetPluginParams()
 			if params != nil {
-				bizPluginV1(params.PrivateGroup, params.PublicRouter)
-				bizPluginV2(params.Engine)
 				// 重新同步全局路由表，包含插件注册的路由
 				global.GVA_ROUTERS = params.Engine.Routes()
 				global.GVA_LOG.Info("插件注册完成")
@@ -31,8 +29,4 @@ func InstallPlugin(PrivateGroup *gin.RouterGroup, PublicRouter *gin.RouterGroup,
 		})
 		return
 	}
-
-	// 数据库已存在，直接注册
-	bizPluginV1(PrivateGroup, PublicRouter)
-	bizPluginV2(engine)
 }

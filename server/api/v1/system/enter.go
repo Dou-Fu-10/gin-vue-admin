@@ -15,13 +15,11 @@ type ApiGroup struct {
 	OperationRecordApi
 	DictionaryDetailApi
 	AuthorityBtnApi
-	SysExportTemplateApi
 	SysParamsApi
 	SysVersionApi
 	SysErrorApi
 	LoginLogApi
 	ApiTokenApi
-	AIWorkflowSessionApi
 }
 
 var (
@@ -39,7 +37,6 @@ var (
 	sysParamsService         = service.ServiceGroupApp.SystemServiceGroup.SysParamsService
 	operationRecordService   = service.ServiceGroupApp.SystemServiceGroup.OperationRecordService
 	dictionaryDetailService  = service.ServiceGroupApp.SystemServiceGroup.DictionaryDetailService
-	aiWorkflowSessionService = service.ServiceGroupApp.SystemServiceGroup.AIWorkflowSession
 	sysVersionService        = service.ServiceGroupApp.SystemServiceGroup.SysVersionService
 	sysErrorService          = service.ServiceGroupApp.SystemServiceGroup.SysErrorService
 	loginLogService          = service.ServiceGroupApp.SystemServiceGroup.LoginLogService

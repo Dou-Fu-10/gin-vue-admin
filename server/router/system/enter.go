@@ -16,7 +16,6 @@ type RouterGroup struct {
 	OperationRecordRouter
 	DictionaryDetailRouter
 	AuthorityBtnRouter
-	SysExportTemplateRouter
 	SysParamsRouter
 	SysVersionRouter
 	SysErrorRouter
@@ -38,8 +37,6 @@ var (
 	authorityMenuApi     = api.ApiGroupApp.SystemApiGroup.AuthorityMenuApi
 	operationRecordApi   = api.ApiGroupApp.SystemApiGroup.OperationRecordApi
 	dictionaryDetailApi  = api.ApiGroupApp.SystemApiGroup.DictionaryDetailApi
-	exportTemplateApi    = api.ApiGroupApp.SystemApiGroup.SysExportTemplateApi
 	sysVersionApi        = api.ApiGroupApp.SystemApiGroup.SysVersionApi
 	sysErrorApi          = api.ApiGroupApp.SystemApiGroup.SysErrorApi
-	aiWorkflowSessionApi = api.ApiGroupApp.SystemApiGroup.AIWorkflowSessionApi
 )

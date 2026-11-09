@@ -14,10 +14,8 @@ type ServiceGroup struct {
 	OperationRecordService
 	DictionaryDetailService
 	AuthorityBtnService
-	SysExportTemplateService
 	SysParamsService
 	SysVersionService
-	AIWorkflowSession aiWorkflowSession
 	SysErrorService
 	LoginLogService
 	ApiTokenService
