@@ -7,7 +7,6 @@ import (
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/initialize"
 	"github.com/flipped-aurora/gin-vue-admin/server/service/system"
-	"go.uber.org/zap"
 )
 
 func RunServer() {
@@ -15,12 +14,6 @@ func RunServer() {
 		initialize.Redis()
 		if global.GVA_CONFIG.System.UseMultipoint {
 			initialize.RedisList()
-		}
-	}
-
-	if global.GVA_CONFIG.System.UseMongo {
-		if err := initialize.Mongo.Initialization(); err != nil {
-			zap.L().Error(fmt.Sprintf("%+v", err))
 		}
 	}
 
