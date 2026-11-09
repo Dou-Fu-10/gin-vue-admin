@@ -46,7 +46,6 @@ func (e *ensureTables) MigrateTable(ctx context.Context) (context.Context, error
 		sysModel.SysBaseMenuBtn{},
 		sysModel.SysAuthorityBtn{},
 		sysModel.SysParams{},
-		sysModel.SysVersion{},
 		sysModel.SysError{},
 		sysModel.SysLoginLog{},
 		sysModel.SysApiToken{},

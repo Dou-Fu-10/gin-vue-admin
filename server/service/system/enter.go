@@ -15,7 +15,6 @@ type ServiceGroup struct {
 	DictionaryDetailService
 	AuthorityBtnService
 	SysParamsService
-	SysVersionService
 	SysErrorService
 	LoginLogService
 	ApiTokenService

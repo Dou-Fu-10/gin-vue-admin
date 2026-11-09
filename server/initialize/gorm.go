@@ -46,7 +46,6 @@ func RegisterTables() {
 		system.SysBaseMenuBtn{},
 		system.SysAuthorityBtn{},
 		system.SysParams{},
-		system.SysVersion{},
 		system.SysError{},
 		system.SysApiToken{},
 		system.SysLoginLog{},
