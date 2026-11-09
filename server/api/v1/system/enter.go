@@ -8,7 +8,6 @@ type ApiGroup struct {
 	BaseApi
 	SystemApi
 	CasbinApi
-	AutoCodeApi
 	SystemApiApi
 	AuthorityApi
 	DictionaryApi
@@ -17,16 +16,11 @@ type ApiGroup struct {
 	DictionaryDetailApi
 	AuthorityBtnApi
 	SysExportTemplateApi
-	AutoCodePluginApi
-	AutoCodePackageApi
-	AutoCodeHistoryApi
-	AutoCodeTemplateApi
 	SysParamsApi
 	SysVersionApi
 	SysErrorApi
 	LoginLogApi
 	ApiTokenApi
-	SkillsApi
 	AIWorkflowSessionApi
 }
 
@@ -45,15 +39,9 @@ var (
 	sysParamsService         = service.ServiceGroupApp.SystemServiceGroup.SysParamsService
 	operationRecordService   = service.ServiceGroupApp.SystemServiceGroup.OperationRecordService
 	dictionaryDetailService  = service.ServiceGroupApp.SystemServiceGroup.DictionaryDetailService
-	autoCodeService          = service.ServiceGroupApp.SystemServiceGroup.AutoCodeService
 	aiWorkflowSessionService = service.ServiceGroupApp.SystemServiceGroup.AIWorkflowSession
-	autoCodePluginService    = service.ServiceGroupApp.SystemServiceGroup.AutoCodePlugin
-	autoCodePackageService   = service.ServiceGroupApp.SystemServiceGroup.AutoCodePackage
-	autoCodeHistoryService   = service.ServiceGroupApp.SystemServiceGroup.AutoCodeHistory
-	autoCodeTemplateService  = service.ServiceGroupApp.SystemServiceGroup.AutoCodeTemplate
 	sysVersionService        = service.ServiceGroupApp.SystemServiceGroup.SysVersionService
 	sysErrorService          = service.ServiceGroupApp.SystemServiceGroup.SysErrorService
 	loginLogService          = service.ServiceGroupApp.SystemServiceGroup.LoginLogService
 	apiTokenService          = service.ServiceGroupApp.SystemServiceGroup.ApiTokenService
-	skillsService            = service.ServiceGroupApp.SystemServiceGroup.SkillsService
 )

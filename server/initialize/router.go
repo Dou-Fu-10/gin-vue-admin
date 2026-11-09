@@ -4,13 +4,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/flipped-aurora/gin-vue-admin/server/docs"
 	"github.com/flipped-aurora/gin-vue-admin/server/global"
 	"github.com/flipped-aurora/gin-vue-admin/server/middleware"
 	"github.com/flipped-aurora/gin-vue-admin/server/router"
 	"github.com/gin-gonic/gin"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 type justFilesFilesystem struct {
@@ -42,7 +39,6 @@ func Routers() *gin.Engine {
 	}
 
 	systemRouter := router.RouterGroupApp.System
-	exampleRouter := router.RouterGroupApp.Example
 	// 如果想要不使用nginx代理前端网页，可以修改 web/.env.production 下的
 	// VUE_APP_BASE_API = /
 	// VUE_APP_BASE_PATH = http://localhost
@@ -57,9 +53,6 @@ func Routers() *gin.Engine {
 	// Router.Use(middleware.Cors()) // 直接放行全部跨域请求
 	// Router.Use(middleware.CorsByRules()) // 按照配置的规则放行跨域请求
 	// global.GVA_LOG.Info("use middleware cors")
-	docs.SwaggerInfo.BasePath = global.GVA_CONFIG.System.RouterPrefix
-	Router.GET(global.GVA_CONFIG.System.RouterPrefix+"/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
-	global.GVA_LOG.Info("register swagger handler")
 	// 方便统一添加路由组前缀 多服务器上线使用
 
 	PublicGroup := Router.Group(global.GVA_CONFIG.System.RouterPrefix)
@@ -96,9 +89,6 @@ func Routers() *gin.Engine {
 		systemRouter.InitSysErrorRouter(PrivateGroup, PublicGroup)          // 错误日志
 		systemRouter.InitLoginLogRouter(PrivateGroup)                       // 登录日志
 		systemRouter.InitApiTokenRouter(PrivateGroup)                       // apiToken签发
-		exampleRouter.InitCustomerRouter(PrivateGroup)                      // 客户路由
-		exampleRouter.InitFileUploadAndDownloadRouter(PrivateGroup)         // 文件上传下载功能路由
-		exampleRouter.InitAttachmentCategoryRouterRouter(PrivateGroup)      // 文件上传下载分类
 	}
 
 	//插件路由安装
