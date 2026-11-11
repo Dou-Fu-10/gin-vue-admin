@@ -30,7 +30,6 @@ func Reload() error {
 
 	// 重新初始化其他配置
 	OtherInit()
-	DBList()
 
 	if global.GVA_DB != nil {
 		// 确保数据库表结构是最新的
